@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 
 export default function SubmitButton() {
-  const { screenHasErrors, cameraHasErrors, micHasErrors, networkHasErrors } =
+  const { screenHasErrors, cameraHasErrors, micHasErrors, networkHasErrors, lightingHasErrors } =
     useProctor();
 
   const [canSubmit, setCanSubmit] = useState(false);
@@ -22,13 +22,15 @@ export default function SubmitButton() {
       cameraHasErrors ||
       micHasErrors ||
       networkHasErrors ||
-      screenHasErrors
+      screenHasErrors ||
+      lightingHasErrors
     ) {
       setCanSubmit(false);
+      setIsModalOpen(false);
     } else {
       setCanSubmit(true);
     }
-  }, [screenHasErrors, cameraHasErrors, micHasErrors, networkHasErrors]);
+  }, [screenHasErrors, cameraHasErrors, micHasErrors, networkHasErrors, lightingHasErrors]);
 
   return (
     <div className="flex justify-center md:justify-start mt-10">
@@ -52,7 +54,7 @@ export default function SubmitButton() {
               Close
             </button>
           </div>
-          <div className="bg-gray-2 pt-8 pb-10">
+          <div className="bg-gray-2 pt-8 pb-10 px-5">
             <div className="bg-gray-2 text-center max-w-[335] mx-auto">
               <h1 className="text-primary font-semibold text-xl mb-3 text-sm">
                 Proceed to start assessment

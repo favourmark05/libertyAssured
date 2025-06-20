@@ -14,6 +14,9 @@ export default function Speed() {
     // A tiny, cached image (35 bytes)
     const TEST_URL = "https://jsonplaceholder.typicode.com/todos/1";
 
+    // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //   .then(response => response.json())
+    //   .then(json => console.log(json))
 
     try {
       // Add a cache-buster to ensure a fresh request and not a cached response
@@ -33,7 +36,7 @@ export default function Speed() {
       setState("error");
       setNetworkHasErrors(true);
     }
-  }, []);
+  }, [setNetworkHasErrors]);
 
   useEffect(() => {
     checkConnection();
@@ -48,15 +51,16 @@ export default function Speed() {
       window.removeEventListener("online", checkConnection);
       window.removeEventListener("offline", checkConnection);
     };
-  }, []);
+  }, [checkConnection, networkHasErrors]);
 
   return (
+    <div onClick={checkConnection}>
     <IconBox
       icon="wifi"
       size="xl"
       color="purple-1"
       title="Speed"
       state={state}
-    />
+    /></div>
   );
 }

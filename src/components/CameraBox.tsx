@@ -53,7 +53,7 @@ export default function CameraBox() {
         }
 
         const averageBrightness = totalBrightness / pixelCount;
-        console.log("Average Brightness:", averageBrightness);
+        // console.log("Average Brightness:", averageBrightness);
         
         // if brightness is less than 110, setLightingHasError to true
         if (averageBrightness < 110) {
@@ -64,7 +64,7 @@ export default function CameraBox() {
         }
       }
     }
-  }, []);
+  }, [setLightingHasErrors]);
 
   useEffect(() => {
     const enableCamera = async () => {
@@ -87,7 +87,7 @@ export default function CameraBox() {
     };
 
     enableCamera();
-  }, []);
+  }, [getAverageBrightness]);
 
   useEffect(() => {
     // check screens
@@ -98,7 +98,7 @@ export default function CameraBox() {
       setHasMultiScreens(false);
       setScreenHasErrors(false);
     }
-  }, [screenInfo]);
+  }, [screenInfo, setScreenHasErrors]);
 
   return (
     <div
@@ -114,7 +114,7 @@ export default function CameraBox() {
       <div className="w-full h-full">
         <video
           ref={videoRef}
-          className="w-full h-full object-cover z-10"
+          className="w-full h-full object-cover"
           muted
           autoPlay
           playsInline

@@ -38,7 +38,7 @@ export default function Mic() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [setMicHasErrors]);
   return (
     <IconBox
       icon="monitor"

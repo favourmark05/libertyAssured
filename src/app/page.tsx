@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="pt-[122px] pb-10 wrap">
+      <div className="pt-[100px] pt-[122px] pb-10 wrap">
         <div className="bg-white max-w-[832px] mx-auto rounded-[20px] px-5 py-8 md:p-10">
           <div>
             <h1 className="font-medium text-xl">System check</h1>
@@ -41,8 +41,8 @@ export default function Home() {
           <SubmitButton />
         </div>
         {/* <ProctorPage /> */}
-        <p className="flex items-center gap-1 mt-24">
-          <span className="text-light-gray uppercase">Powered by</span>{" "}
+        <p className="flex items-center gap-[6px] mt-24">
+          <span className="text-sm text-light-gray uppercase">Powered by</span>{" "}
           <span className="font-medium text-lg">Getlinked.AI</span>
         </p>
       </div>

@@ -43,7 +43,7 @@ export default function Webcam() {
 
     return () => clearInterval(interval);
 
-  }, []); 
+  }, [setCameraHasErrors]); 
 
   return (
     <div>
