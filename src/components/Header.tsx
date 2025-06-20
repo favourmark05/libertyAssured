@@ -36,8 +36,12 @@ export default function Header() {
               <p className="hidden md:block text-sm font-medium">time left</p>
             </div>
           </div>
-          <button className="transition-all duration-300 cursor-pointer" onClick={toggleTimer}>
-            <Icon icon="eye" size="large" color="purple-2" />
+          <button onClick={toggleTimer}>
+            <Icon
+              icon={showTimer ? "eye" : "eye-off"}
+              size="large"
+              color="purple-2"
+            />
           </button>
         </div>
       </div>
